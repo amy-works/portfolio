@@ -1,0 +1,48 @@
+/* --- 1. ぴこぴこ（拡大縮小：動画のボタン風） --- */
+@keyframes piko-piko {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .ani-piko {
+    animation: piko-piko 1.2s infinite ease-in-out;
+  }
+  
+  /* --- 2. ぷるぷる（左右に震える：注意を引く） --- */
+  @keyframes puru-puru {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+  .ani-puru {
+    animation: puru-puru 2s infinite;
+  }
+  
+  /* --- 3. ふわふわ（上下に浮く：柔らかい印象） --- */
+  @keyframes fuwa-fuwa {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .ani-fuwa {
+    animation: fuwa-fuwa 2s infinite ease-in-out;
+  }
+  
+  /* --- 4. ギラッ（光が走る：高級感・限定感） --- */
+  @keyframes kira-rin {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  .ani-kira {
+    position: relative;
+    overflow: hidden;
+  }
+  .ani-kira::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: kira-rin 3s infinite;
+  }
